@@ -2,6 +2,8 @@ const Router = require('koa-router');
 const router = new Router();
 const api = require('../api');
 const moment = require('moment');
+const wxouth = require('./wxouth');
+
 
 const formatDate = require('../middleware/formatDate');
 const checkToken = require('../middleware/checkToken');
@@ -82,4 +84,24 @@ router
         };
       });
   })
+
+  .post('/client',async (ctx,next)=>{
+    await checkToken(ctx,next);
+    let token=''
+    await wxouth.getAccessToken()
+      .then((res)=>{
+        token=res.access_token
+
+      })
+
+    await wxouth.getuv(token)
+      .then((res)=>{
+        ctx.body={
+          msg:res
+        }
+      })
+
+  })
+
+
   module.exports = router;

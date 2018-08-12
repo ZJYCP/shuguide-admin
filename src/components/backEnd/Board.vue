@@ -6,18 +6,18 @@
           <el-col>
             <el-card shadow="hover" class="mgb20">
               <div class="user-info">
-                <img src="static/img/img.jpg" class="user-avator" alt="">
+                <img src="/static/img.jpg" class="user-avator" alt="">
                 <div class="user-info-cont">
                   <div class="user-info-name">{{name}}</div>
                   <div>{{role}}</div>
                 </div>
               </div>
               <div class="user-info-list">上次登录时间：<span>2018-01-01</span></div>
-              <div class="user-info-list">上次登录地点：<span>东莞</span></div>
+              <div class="user-info-list">上次登录地点：<span>上海</span></div>
             </el-card>
             <el-card shadow="hover">
               <div slot="header" class="clearfix">
-                <span>语言详情</span>
+                <span>随便写写</span>
               </div>
               Vue
               <el-progress :percentage="57.2" color="#42b983"></el-progress>
@@ -36,10 +36,10 @@
           <el-col :span="8">
             <el-card shadow="hover" :body-style="{padding: '0px'}">
               <div class="grid-content grid-con-1">
-                <i class="el-icon-view grid-con-icon"></i>
+                <i class="el-icon-location grid-con-icon"></i>
                 <div class="grid-cont-right">
-                  <div class="grid-num">1234</div>
-                  <div>用户访问量</div>
+                  <div class="grid-num">{{placetotal}}</div>
+                  <div>总地点数</div>
                 </div>
               </div>
             </el-card>
@@ -47,10 +47,10 @@
           <el-col :span="8">
             <el-card shadow="hover" :body-style="{padding: '0px'}">
               <div class="grid-content grid-con-2">
-                <i class="el-icon-message grid-con-icon"></i>
+                <i class="el-icon-news grid-con-icon"></i>
                 <div class="grid-cont-right">
-                  <div class="grid-num">321</div>
-                  <div>系统消息</div>
+                  <div class="grid-num">{{newstotal}}</div>
+                  <div>总新闻数</div>
                 </div>
               </div>
             </el-card>
@@ -58,10 +58,10 @@
           <el-col :span="8">
             <el-card shadow="hover" :body-style="{padding: '0px'}">
               <div class="grid-content grid-con-3">
-                <i class="el-icon-goods grid-con-icon"></i>
+                <i class="el-icon-view grid-con-icon"></i>
                 <div class="grid-cont-right">
-                  <div class="grid-num">5000</div>
-                  <div>数量</div>
+                  <div class="grid-num">{{visit_pv}}</div>
+                  <div>小程序访问量</div>
                 </div>
               </div>
             </el-card>
@@ -98,18 +98,25 @@
 </template>
 
 <script>
+  import axios from 'axios'
+  import {
+    sub
+  } from '../../assets/js/commen'
   export default {
     name: 'dashboard',
     data() {
       return {
-        name: localStorage.getItem('ms_username'),
+        placetotal:0,
+        newstotal:0,
+        visit_pv:0,
+        name: 'admin',
         todoList: [
           {
-            title: '今天要修复100个bug',
+            title: '今天要添加100个地点',
             status: false,
           },
           {
-            title: '今天要修复100个bug',
+            title: '今天要添加100个新闻',
             status: false,
           },
           {
@@ -120,20 +127,49 @@
             status: false,
           },
           {
-            title: '今天要修复100个bug',
+            title: '此模块占位i',
             status: true,
           },
           {
-            title: '今天要写100行代码加几个bug吧',
+            title: '此模块占位',
             status: true,
           }
         ]
+      }
+    },
+
+    methods:{
+      init(){
+        this.$api.getPlaceList({page:1})
+          .then(({data:{placeLists,total}})=>{
+            setTimeout(()=>{
+              this.placetotal =total;
+            },this.$con.BACKLOADTIM)
+          });
+        this.$api.getNewsList({page:1})
+          .then(({data:{newsList,total}}) => {
+            console.log(newsList)
+            setTimeout(() => {
+              this.newstotal=total;
+            })
+          });
+        this.$api.getClientNum()
+          .then((res) => {
+            console.log(res)
+            setTimeout(() => {
+              // this.newstotal=total;
+              this.visit_pv=res.data.msg
+            })
+          })
       }
     },
     computed: {
       role() {
         return this.name === 'admin' ? '超级管理员' : '普通用户';
       }
+    },
+    mounted() {
+      this.init()
     }
   }
 

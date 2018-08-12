@@ -134,7 +134,6 @@
         this.page = val;
         this.getLists()
       },
-      // 获取分类列表
       getLists() {
         this.listLoading = true
         this.$api.getNewsList({page:this.page})

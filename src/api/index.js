@@ -104,5 +104,8 @@ export default {
   },
   removeNews(params) {
     return back.post('/api/news/remove', params);
+  },
+  getClientNum(data){
+    return back.post('/api/news/client',data);
   }
 }

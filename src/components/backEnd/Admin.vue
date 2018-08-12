@@ -22,7 +22,7 @@
           router
           default-active="placeList"
           active-text-color="#20A0FF">
-          <el-menu-item index="/admin/placeList">
+          <el-menu-item index="/admin/board">
             <i class="el-icon-star-on"></i>
             <span slot="title">主页</span>
           </el-menu-item>
@@ -65,9 +65,9 @@
   export default {
     data() {
       return {
-        currentPath: '/admin/placeList',
+        currentPath: '/admin/board',
         currentPathNameParent: '管理面板',
-        currentPathName: '地点管理'
+        currentPathName: '主页'
       }
     },
     methods: {

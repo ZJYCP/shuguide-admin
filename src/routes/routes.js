@@ -7,6 +7,7 @@ import PlaceList from '@/components/backEnd/PlaceList'
 import PlaceEdit from '@/components/backEnd/PlaceEdit'
 import ClassList from '@/components/backEnd/ClassList'
 import NewsList from '@/components/backEnd/NewsList'
+import Board from '@/components/backEnd/Board'
 
 import NotFound from '@/components/NotFound'
 
@@ -31,22 +32,22 @@ export default [
     children: [
       {
         path: '',
-        redirect: 'placeList'
+        redirect: 'board'
       },
       {
         path: 'placeList',
         component: PlaceList,
-        name: '文章管理'
+        name: '地点管理'
       },
       {
         path: 'placeCreate',
         component: PlaceCreate,
-        name: '创建文章'
+        name: '创建地点'
       },
       {
         path: 'placeEdit/:placeId',
         component: PlaceEdit,
-        name: "编辑文章"
+        name: "编辑地点"
       },
       {
         path: 'classList',
@@ -57,6 +58,11 @@ export default [
         path: 'newsList',
         component: NewsList,
         name: '新闻管理'
+      },
+      {
+        path: 'board',
+        component: Board,
+        name: '主页面板'
       }
     ]
   },
