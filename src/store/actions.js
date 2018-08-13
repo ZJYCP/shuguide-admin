@@ -8,7 +8,7 @@ export default {
        .then(({data})=>{
          if(data.code==200){
             commit('USER_REG',data.token)
-            router.replace({path:'/admin'})
+            router.replace({path:'/'})
          }else{
           //  上一个catch处理了MongoError
           Vue.prototype.$message({
@@ -33,7 +33,7 @@ export default {
               // 找到用户
               commit('USER_SIGNIN',data.token)
                 //替换路由
-                router.replace({path:'/admin/placeList'})
+                router.replace({path:'/'})
             }else{
               // 没找到用户或者密码不对
               Vue.prototype.$message({

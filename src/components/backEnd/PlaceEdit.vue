@@ -118,7 +118,7 @@
                   })
                   setTimeout(() => {
                     this.$router.push({
-                      path: '/admin/placeList'
+                      path: '/placeList'
                     })
                   }, this.$con.BACKLOADTIM)
                 }
@@ -166,7 +166,7 @@
       // 取消
       cancle() {
         this.$router.push({
-          path: '/admin/placeList'
+          path: '/placeList'
         });
       }
     },

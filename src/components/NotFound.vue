@@ -12,7 +12,7 @@
 export default {
   methods:{
     goHome(){
-      this.$router.replace({path:'/admin'});
+      this.$router.replace({path:'/'});
     }
   }
 }

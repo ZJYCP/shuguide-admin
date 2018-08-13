@@ -27,7 +27,7 @@ export default [
 
   {
     // 后台路由
-    path: '/admin',
+    path: '/',
     component: Admin,
     children: [
       {

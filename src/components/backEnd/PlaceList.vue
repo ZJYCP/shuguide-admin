@@ -101,11 +101,11 @@ export default {
       //跳转到编辑界面，进行更新
       editPlace(uid){
         // 通过this.$route.params来获取数据
-          this.$router.push({path:`/admin/placeEdit/${uid}`});
+          this.$router.push({path:`/placeEdit/${uid}`});
       },
       // 跳转到编辑界面，进行新建
       createPlace(){
-          this.$router.push({path:'/admin/placeCreate'});
+          this.$router.push({path:'/placeCreate'});
       }
 
     },

@@ -5,7 +5,7 @@
         <!-- push就是相对定位了 -->
         <!--  offset设置的是margin-lef-->
         <el-col :span="19" style='font-size:26px'>
-          <span @click="toHome" style="cursor:pointer">Panini&nbsp;<i style="color:#20a0ff">Blogs</i></span>
+          <span @click="toHome" style="cursor:pointer">上大导览<i style="color:#20a0ff">后台管理</i></span>
         </el-col>
         <el-col :span='5' class='rightbar'>
           <el-button type="text" @click="con">注销</el-button>
@@ -22,19 +22,19 @@
           router
           default-active="placeList"
           active-text-color="#20A0FF">
-          <el-menu-item index="/admin/board">
+          <el-menu-item index="/board">
             <i class="el-icon-star-on"></i>
             <span slot="title">主页</span>
           </el-menu-item>
-          <el-menu-item index="/admin/placeList">
+          <el-menu-item index="/placeList">
             <i class="el-icon-document"></i>
             <span slot="title">地点管理</span>
           </el-menu-item>
-          <el-menu-item index="/admin/classList">
+          <el-menu-item index="/classList">
             <i class="el-icon-menu"></i>
             <span slot="title">分类管理</span>
           </el-menu-item>
-          <el-menu-item index="/admin/newsList">
+          <el-menu-item index="/newsList">
             <i class="el-icon-news"></i>
             <span slot="title">新闻管理</span>
           </el-menu-item>
@@ -65,7 +65,7 @@
   export default {
     data() {
       return {
-        currentPath: '/admin/board',
+        currentPath: '/board',
         currentPathNameParent: '管理面板',
         currentPathName: '主页'
       }

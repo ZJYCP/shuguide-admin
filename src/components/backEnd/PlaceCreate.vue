@@ -117,7 +117,7 @@ export default {
                             }
 
                             setTimeout(()=>{
-                              this.$router.push({path:'/admin/placeList'})
+                              this.$router.push({path:'/placeList'})
                             },this.$con.BACKLOADTIM)
                         })
                 })
@@ -128,7 +128,7 @@ export default {
     },
     // 取消
     cancle(){
-      this.$router.push({path:'/admin/placeList'});
+      this.$router.push({path:'/placeList'});
     }
   },
   computed:{

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <el-form class="login_form" :model="user" :rules="loginRules" ref="user" label-position="left" label-width="0px" v-loading="loadingflag" element-loading-text="页面跳转中">
-     <h3 class="title">欢迎登录后台管理系统</h3>
+     <h3 class="title">欢迎登录上大导览后台管理系统</h3>
      <el-form-item prop="account">
        <el-input type="text" v-model="user.account" auto-complete="off" placeholder="账号"></el-input>
      </el-form-item>
