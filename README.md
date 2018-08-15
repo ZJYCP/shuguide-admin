@@ -4,38 +4,9 @@
 	
 [原项目git地址](https://github.com/elva2596/vueBlog)
 
-[我的项目git地址](https://github.com/The-Never/vueBlog)
 
-## 原项目
-> 一个前端基于Vue2.0全家桶，后端基于Express+Mongodb的前后端分离博客。前端界面使用了flexbox+rem布局，后端界面使用了element ui。本项目可以作为一个前端进阶项目，从前端flexbox布局到前端框架的使用，再到后端以及数据库，是一个打通前后端流程的一个项目。由于最近刚换了域名，正在备案中，所以目前没有线上演示，不过可以看一下下面的动态图特效。  
-
-## 修改说明
-* 数据库由Mongodb改为mysql
-* 后台增加了koa2框架的支持（可以使用express或者koa2）
-* 对项目依赖进行了升级，并对相应的代码进行了修改
-
-#  特点
-* 支持 MarkDown 编辑
-* 支持代码高亮
-* 支持移动端浏览
-
-[原项目在线地址](http://www.dailu.site)
-
-# 功能展示展示
-
-
-#### PC前台博客演示
-
-![](src/assets/img/fronted.gif)
-
-
-#### 移动端前台演示
-![](src/assets/img/mobile.gif)
-
-#### 后台管理演示
-![](src/assets/img/backend.gif)
-
-#### 若图片无法显示则点击这里:[pc前端功能展示](http://ofyxyx8o9.bkt.clouddn.com/fronted.gif) [移动前端功能展示](http://ofyxyx8o9.bkt.clouddn.com/mobile.gif)[pc后端功能展示](http://ofyxyx8o9.bkt.clouddn.com/backend.gif)
+## 项目说明
+> 一个前端基于Vue2.0全家桶，后端基于koa2+Mysql的前后端分离后台管理系统。作为微信小程序上大导览的后台管理系统  
 
 ### 前端工具
 * Vue2.0
@@ -55,7 +26,7 @@
 
 
 ### 后端工具
-* express || koa2
+* koa2
 * mysql
 
 后端的管理界面我直接使用了[element ui](http://element.eleme.io/#/)这个基于vue的组件库，很强大.
@@ -64,115 +35,92 @@
 # 目录结构
 
 ```
-│  .babelrc
-│  .editorconfig
-│  .eslintignore
-│  .eslintrc.js
-│  .gitignore
-│  index.html
-│  package.json
-│  README.md
-│
-├─build
-│      build.js
-│      check-versions.js
-│      dev-client.js
-│      dev-server.js
-│      utils.js
-│      webpack.base.conf.js
-│      webpack.dev.conf.js
-│      webpack.prod.conf.js
-│
-├─config
-│      dev.env.js
-│      index.js
-│      prod.env.js
-│      test.env.js
-│
-├─koa                           后端文件夹（koa2框架,结构与express类型）
-├─server                        后端文件夹（express框架）
-│  │  .env
-│  │  app.js    后端入口
-│  │
-│  ├─api
-│  │      index.js  后端api
-│  │
-│  ├─db
-│  │      index.js 数据库
-│  │
-│  ├─config
-│  │      index.js 常量表
-│  │
-│  ├─middleware
-│  │      checkToken.js
-│  │      createToken.js
-│  │      formatDate.js
-│  │
-│  └─routes                 后端路由
-│          admin.js
-│          place.js
-│          classify.js
-│          index.js
-│
-├─src       前端文件夹
-│  │  App.vue
-│  │  main.js   前端入口
-│  │
-│  ├─api    前端api
-│  │      index.js
-│  │
-│  ├─config   常量表
-│  │      index.js
-│  ├─assets
-│  │  ├─css
-│  │  │      commen.css
-│  │  │      default.css
-│  │  │      default0.css
-│  │  │      highlight.css
-│  │  │
-│  │  ├─img
-│  │  │      bg.jpg
-│  │  │      bgm.jpg
-│  │  │
-│  │  └─js
-│  │          commen.js
-│  │          highlight.pack.js
-│  │          hljs.js
-│  │
-│  ├─components
-│  │  │  NotFound.vue
-│  │  │
-│  │  ├─backEnd             后端界面
-│  │  │      Admin.vue
-│  │  │      ArticleCreate.vue
-│  │  │      ArticleEdit.vue
-│  │  │      ArticleList.vue
-│  │  │      ClassList.vue
-│  │  │      Login.vue
-│  │  │      Reg.vue
-│  │  │
-│  │  └─fronted             前端界面
-│  │  	   │	About.vue
-│  │  	   │	Article.vue
-│  │  	   │	Front.vue
-│  │  	   │	Home.vue
-│  │  	   │	Tags.vue
-│  │  	   └─── common         前端界面公共组件
-│  │				vfooter.vue  
-│  │                vheader.vue
-│  │			    articleItem.vue
-│  │ 
-│  │
-│  ├─routes             前端路由vue-router
-│  │      index.js
-│  │      routes.js
-│  │
-│  └─store             前端vuex
-│      │  actions.js
-│      │  index.js
-│      │  mutations.js
-│      │  states.js
-│      │  types.js
+├─ build
+│  ├─ build.js
+│  ├─ check-versions.js
+│  ├─ logo.png
+│  ├─ utils.js
+│  ├─ vue-loader.conf.js
+│  ├─ webpack.base.conf.js
+│  ├─ webpack.dev.conf.js
+│  └─ webpack.prod.conf.js
+├─ config
+│  ├─ dev.env.js
+│  ├─ index.js
+│  └─ prod.env.js
+├─ koa
+│  ├─ api
+│  │  └─ index.js
+│  ├─ config
+│  │  └─ index.js
+│  ├─ db
+│  │  └─ index.js
+│  ├─ middleware
+│  │  ├─ checkToken.js
+│  │  ├─ createToken.js
+│  │  └─ formatDate.js
+│  ├─ routes
+│  │  ├─ admin.js
+│  │  ├─ classify.js
+│  │  ├─ index.js
+│  │  ├─ news.js
+│  │  ├─ place.js
+│  │  └─ wxouth.js
+│  ├─ .env
+│  ├─ app.js
+│  └─ package.json
+├─ src
+│  ├─ api
+│  │  └─ index.js
+│  ├─ assets
+│  │  ├─ css
+│  │  │  ├─ commen.css
+│  │  │  ├─ default.css
+│  │  │  ├─ default0.css
+│  │  │  └─ highlight.css
+│  │  ├─ img
+│  │  │  ├─ bg.jpg
+│  │  │  ├─ bgm.jpg
+│  │  └─ js
+│  │     ├─ commen.js
+│  │     ├─ highlight.pack.js
+│  │     └─ hljs.js
+│  ├─ components
+│  │  ├─ backEnd
+│  │  │  ├─ Admin.vue
+│  │  │  ├─ Board.vue
+│  │  │  ├─ ClassList.vue
+│  │  │  ├─ Login.vue
+│  │  │  ├─ NewsList.vue
+│  │  │  ├─ PlaceCreate.vue
+│  │  │  ├─ PlaceEdit.vue
+│  │  │  ├─ PlaceList.vue
+│  │  │  └─ Reg.vue
+│  │  └─ NotFound.vue
+│  ├─ config
+│  │  └─ index.js
+│  ├─ routes
+│  │  ├─ index.js
+│  │  └─ routes.js
+│  ├─ store
+│  │  ├─ actions.js
+│  │  ├─ index.js
+│  │  ├─ mutations.js
+│  │  ├─ states.js
+│  │  └─ types.js
+│  ├─ App.vue
+│  └─ main.js
+├─ static
+│  └─ .gitkeep
+├─ .babelrc
+├─ .editorconfig
+├─ .gitignore
+├─ .postcssrc.js
+├─ README.md
+├─ index.html
+├─ package-lock.json
+└─ package.json
+
 ```  
 
 ## Step
@@ -181,7 +129,7 @@
 * mysql 
 
 #### 克隆远程库
-`git clone https://github.com/The-Never/vueBlog`
+`git@github.com:ZJYCP/shuguide-admin.git`
 
 
 #### 安装前端依赖
@@ -189,12 +137,8 @@
 
 #### 启动mysql服务器
 
-在你安装的数据库文件中的bin目录中启动
 
-`mysqld`
-
-#### 安装后端依赖 (可选express或者koa2)
-`进入到server文件夹下，安装后端依赖：npm install` **安装express**
+#### 安装后端依赖 
 `进入到koa文件夹下，安装后端依赖：npm install` **安装koa2**
 
 #### 启动后端服务器
@@ -205,12 +149,9 @@
 `回到项目根目录下运行：npm run dev`
 
 
-#### 生成发布
-`npm run build`
-
 
 #### Notice
-* 前后端启动时的路径不一样，前端在项目根目录，后端在servser根目录，其实可以把后端分离出来。
+* 前后端启动时的路径不一样，前端在项目根目录，后端在servser根目录
 * 因为是前后端分离项目，必然涉及到跨域，使用webpack的proxyTable,进入到config文件夹的index.js,将proxyTable配置成：
 `proxyTable: {
         '/api':{
@@ -223,10 +164,22 @@
     },`
 
 
-# Todo
-* 线上访问
-* 项目展示模块
-* 个人信息模块
+#### 生成发布
+`npm run build`
 
+###生产环境
+* 利用ngnix端口分发部署实现代码全分离，开发全分离。
+* nginx文件配置内容
+````
+   server {
+   	listen       80;
+   	server_name  localhost;
+
+   	location /api/ {
+   	    proxy_pass http://127.0.0.1:3009/api/;          #转发至api接口
+   	}
+
+   }
+````
 ## License
 MIT
